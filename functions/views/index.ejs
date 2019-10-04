@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>YouTube Downloader by Boy Panjaitan</title>
+    <style>
+        * {
+            text-align: center;
+            font-family: Arial;
+        }
+        .heading {
+            margin-top:40vh;
+        }
+        .URL-input, .convert-button {
+            font-size:1.3em;
+            padding:5px 10px;
+        }
+        .URL-input {
+            border-radius:4px 0px 0px 4px;
+            width:30em;
+            text-align: left;
+            border:2px solid #EEEEEE;
+            background: #EEEEEE;
+            outline:none;
+        }
+        .URL-input:focus {
+            border:2px solid #0485ff;
+        }
+        .convert-button {
+            border-radius:0px 4px 4px 0px;
+            border:2px solid #0485ff;
+            background: #0485ff;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading">YouTube Downloader !</h1>
+    <p style="color: orange;">By Boy Panjaitan</p>
+    <input class="URL-input" placeholder="Video URL e.g. https://www.youtube.com/watch?v=MtN1YnoL46Q">
+    <button class="convert-button">Download</button>
+</body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+    var convertBtn = document.querySelector('.convert-button');
+    var URLinput = document.querySelector('.URL-input');
+
+    convertBtn.addEventListener('click', () => {
+        console.log(`URL: ${URLinput.value}`);
+        sendURL(URLinput.value);
+    });
+
+    function sendURL(URL) {
+        if (URL !== "") {
+            window.location.href = `/download?URL=${URL}`;
+        }
+        else {
+            swal("Oopss", "Video URL cannot be empty", "warning");
+        }
+    }
+</script>
+</html>
